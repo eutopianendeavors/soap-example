@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.SQLInput;
 import java.sql.SQLOutput;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 public class StuInfo implements SQLData {
 
 	private String firstName;
@@ -21,6 +23,7 @@ public class StuInfo implements SQLData {
 	private String dorm;
 	private String room;
 	private String fullname;
+	private String race;
 	private String ethnicity;
 	private String veteranStatus;
 	private String sqlType;
@@ -45,6 +48,7 @@ public class StuInfo implements SQLData {
 		this.dorm = stream.readString();
 		this.room = stream.readString();
 		this.fullname = stream.readString();
+		this.race = stream.readString();
 		this.ethnicity = stream.readString();
 		this.veteranStatus = stream.readString();
 
@@ -65,6 +69,7 @@ public class StuInfo implements SQLData {
 		stream.writeString(this.dorm);
 		stream.writeString(this.room);
 		stream.writeString(this.fullname);
+		stream.writeString(this.race);
 		stream.writeString(this.ethnicity);
 		stream.writeString(this.veteranStatus);
 	}
@@ -181,6 +186,14 @@ public class StuInfo implements SQLData {
 		this.fullname = fullname;
 	}
 
+	public String getRace() {
+		return race;
+	}
+
+	public void setRace(String race) {
+		this.race = race;
+	}
+
 	public String getEthnicity() {
 		return ethnicity;
 	}
@@ -197,6 +210,7 @@ public class StuInfo implements SQLData {
 		this.veteranStatus = veteranStatus;
 	}
 
+	@XmlTransient
 	public String getSqlType() {
 		return sqlType;
 	}

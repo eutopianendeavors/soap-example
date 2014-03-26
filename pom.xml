@@ -14,34 +14,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<cxf.version>2.7.10</cxf.version>
 		<spring.version>3.0.7.RELEASE</spring.version>
+		<spring.data.oracle.version>1.0.0.RELEASE</spring.data.oracle.version>
 		<slf4j.version>1.7.5</slf4j.version>
 		<junit.version>4.11</junit.version>
 		<commons-dbcp.version>1.4</commons-dbcp.version>
 	</properties>
-    <dependencyManagement>
-        <dependencies>
-            <!-- 
-            Pull in the cxf-parents as import scope to re-use the dependenecyManagement 
-            sections of those poms.   Those sections define the versions of various third
-            party deps that CXF used to build with and test with and we would like
-            to make sure the same versions are used for the samples
-            -->
-            <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-parent</artifactId>
-                <version>${cxf.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf</artifactId>
-                <version>${cxf.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
 	<build>
 		<finalName>AdvocateWS</finalName>
@@ -94,6 +71,11 @@
 			<groupId>ojdbc6</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>ojdbc6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-oracle</artifactId>
+			<version>${spring.data.oracle.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>

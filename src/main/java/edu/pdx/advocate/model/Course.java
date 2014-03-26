@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.SQLInput;
 import java.sql.SQLOutput;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 public class Course implements SQLData {
 	private String crn;
 	private String course;
@@ -118,6 +120,7 @@ public class Course implements SQLData {
 		this.enddate = enddate;
 	}
 
+	@XmlTransient
 	public String getSqlType() {
 		return sqlType;
 	}
