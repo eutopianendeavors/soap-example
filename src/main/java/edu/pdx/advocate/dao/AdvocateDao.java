@@ -34,12 +34,12 @@ public class AdvocateDao {
 	public StuInfo getStudentInfo(String stuId) {
 		SimpleJdbcCall call = new SimpleJdbcCall(dataSource)
 				.withProcedureName("GetStudentInfo")
-				.withCatalogName("ZGADVOCATE_TEST")
+				.withCatalogName("ZGADVOCATE")
 				.declareParameters(
 						new SqlParameter("stuID", OracleTypes.VARCHAR))
 				.declareParameters(
 						new SqlOutParameter("stuInfo", OracleTypes.STRUCT,
-								"ZGADVOCATE_TEST_STUINFO_T",
+								"ZGADVOCATE_STUINFO_T",
 								new SqlReturnSqlData(StuInfo.class)));
 
 		Map<String, String> in = Collections.singletonMap("stuID", stuId); // 933953821
@@ -50,11 +50,11 @@ public class AdvocateDao {
 	public List<Course> getCourses(String stuId) {
 		SimpleJdbcCall call = new SimpleJdbcCall(dataSource)
 				.withProcedureName("GetClassSchedule")
-				.withCatalogName("ZGADVOCATE_TEST")
+				.withCatalogName("ZGADVOCATE")
 				.declareParameters(new SqlParameter("stuID", Types.VARCHAR))
 				.declareParameters(
 						new SqlOutParameter("classSched", Types.ARRAY,
-								"ZGADVOCATE_TEST_SCHED_T",
+								"ZGADVOCATE_SCHED_T",
 								new SqlReturnStructArray<Course>(
 										new StructMapper<Course>() {
 
@@ -66,7 +66,7 @@ public class AdvocateDao {
 														arg0.getAttributes(),
 														new HashMap());
 												course.readSQL(input,
-														"ZGADVOCATE_TEST_CLASS_T");
+														"ZGADVOCATE_CLASS_T");
 												return course;
 											}
 
