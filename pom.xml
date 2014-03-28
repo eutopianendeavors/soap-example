@@ -55,12 +55,9 @@
 		</profile>
         <profile>
             <id>devl</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
-                <rp.build.warname>AdvocateWS</rp.build.warname>
-                <datasource.jndi>jdbc/advocate</datasource.jndi>
+                <rp.build.warname>AdvocateWS_devl</rp.build.warname>
+                <datasource.jndi>jdbc/saisusr_devl</datasource.jndi>
             </properties>
         </profile>
 	</profiles>
