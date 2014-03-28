@@ -8,9 +8,7 @@ import edu.pdx.advocate.model.Course;
 import edu.pdx.advocate.model.StuInfo;
 
 @WebService
-public interface HelloWorld {
-	String sayHi(String text);
-
+public interface AdvocateWSPort {
 	StuInfo getStuInfo(String stuId);
 	
 	List<Course> getCourses(String stuId);

@@ -22,11 +22,11 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	<context:component-scan base-package="edu.pdx.advocate" />
 
-	<bean id="service" class="edu.pdx.advocate.service.HelloWorldImpl">
+	<bean id="service" class="edu.pdx.advocate.service.AdvocateWSPortImpl">
 		<property name="dao" ref="dao" />
 	</bean>
 
-	<jaxws:endpoint id="helloWorld" implementor="#service"
+	<jaxws:endpoint id="advocate" implementor="#service"
 		address="/AdvocateWSPort" />
 
 	<bean id="propertyConfigurer"

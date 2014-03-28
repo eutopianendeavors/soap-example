@@ -1,4 +1,4 @@
-package advocate;
+package edu.pdx.advocate.dao;
 
 import java.sql.SQLException;
 
@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import edu.pdx.advocate.dao.AdvocateDao;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "/cxf-servlet.xml" })
+@ContextConfiguration(locations = { "/cxf-servlet.xml", "/cxf-servlet-test.xml" })
 public class AdvocateDaoTest {
 
 	@Autowired
@@ -29,8 +29,8 @@ public class AdvocateDaoTest {
 	@Test
 	public void testAdvocateDaoCourseList() throws SQLException,
 			ClassNotFoundException {
-		// AdvocateDao dao = applicationContext.getBean(AdvocateDao.class);
-		//
-		// System.out.println(dao.getCourses("980631475"));
+//		 AdvocateDao dao = applicationContext.getBean(AdvocateDao.class);
+//		
+//		 System.out.println(dao.getCourses("980631475"));
 	}
 }

@@ -10,16 +10,11 @@ import edu.pdx.advocate.dao.AdvocateDao;
 import edu.pdx.advocate.model.Course;
 import edu.pdx.advocate.model.StuInfo;
 
-@WebService(endpointInterface = "edu.pdx.advocate.service.HelloWorld")
-public class HelloWorldImpl implements HelloWorld {
+@WebService(endpointInterface = "edu.pdx.advocate.service.AdvocateWSPort")
+public class AdvocateWSPortImpl implements AdvocateWSPort {
 
 	@Autowired
 	private AdvocateDao dao;
-
-	public String sayHi(String text) {
-		System.out.println("sayHi called");
-		return "Hello " + text;
-	}
 
 	public StuInfo getStuInfo(String stuId) {
 		return dao.getStudentInfo(stuId);
