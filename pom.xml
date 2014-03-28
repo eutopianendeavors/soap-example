@@ -22,7 +22,7 @@
 	</properties>
 
 	<build>
-		<finalName>AdvocateWS</finalName>
+		<finalName>${rp.build.warname}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -49,9 +49,20 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
+				<rp.build.warname>AdvocateWS</rp.build.warname>
 				<datasource.jndi>java:comp/env/jdbc/advocate</datasource.jndi>
 			</properties>
 		</profile>
+        <profile>
+            <id>devl</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <rp.build.warname>AdvocateWS</rp.build.warname>
+                <datasource.jndi>jdbc/advocate</datasource.jndi>
+            </properties>
+        </profile>
 	</profiles>
 
 	<repositories>
