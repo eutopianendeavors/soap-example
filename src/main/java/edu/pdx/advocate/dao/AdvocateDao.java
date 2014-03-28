@@ -42,7 +42,7 @@ public class AdvocateDao {
 								"ZGADVOCATE_STUINFO_T",
 								new SqlReturnSqlData(StuInfo.class)));
 
-		Map<String, String> in = Collections.singletonMap("stuID", stuId); // 933953821
+		Map<String, String> in = Collections.singletonMap("stuID", stuId);
 		return call.executeFunction(StuInfo.class, in);
 
 	}
@@ -79,7 +79,7 @@ public class AdvocateDao {
 											}
 										})));
 
-		Map<String, String> in = Collections.singletonMap("stuID", stuId); // 933953821
+		Map<String, String> in = Collections.singletonMap("stuID", stuId);
 		Object[] courseArray = call.executeFunction(Course[].class, in);
 		List<Course> courses = new ArrayList<Course>();
 		for (Object object : courseArray) {

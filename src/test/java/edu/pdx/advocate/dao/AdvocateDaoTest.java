@@ -21,7 +21,7 @@ public class AdvocateDaoTest {
 	// @Test
 	// public void testAdvocateDaoStuInfo() throws SQLException {
 	// AdvocateDao dao = applicationContext.getBean(AdvocateDao.class);
-	// StuInfo stuInfo = dao.getStudentInfo("924889916");
+	// StuInfo stuInfo = dao.getStudentInfo("#########");
 	// System.out.println(stuInfo.getSQLTypeName() + " "
 	// + stuInfo.getFullname());
 	// }
@@ -31,6 +31,6 @@ public class AdvocateDaoTest {
 			ClassNotFoundException {
 //		 AdvocateDao dao = applicationContext.getBean(AdvocateDao.class);
 //		
-//		 System.out.println(dao.getCourses("980631475"));
+//		 System.out.println(dao.getCourses("#########"));
 	}
 }
