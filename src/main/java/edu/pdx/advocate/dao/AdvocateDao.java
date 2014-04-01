@@ -34,6 +34,7 @@ public class AdvocateDao {
 	public StuInfo getStudentInfo(String stuId) {
 		SimpleJdbcCall call = new SimpleJdbcCall(dataSource)
 				.withProcedureName("GetStudentInfo")
+				.withSchemaName("BANINST1")
 				.withCatalogName("ZGADVOCATE")
 				.declareParameters(
 						new SqlParameter("stuID", OracleTypes.VARCHAR))
@@ -50,6 +51,7 @@ public class AdvocateDao {
 	public List<Course> getCourses(String stuId) {
 		SimpleJdbcCall call = new SimpleJdbcCall(dataSource)
 				.withProcedureName("GetClassSchedule")
+				.withSchemaName("BANINST1")
 				.withCatalogName("ZGADVOCATE")
 				.declareParameters(new SqlParameter("stuID", Types.VARCHAR))
 				.declareParameters(

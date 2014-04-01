@@ -49,17 +49,24 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<properties>
-				<rp.build.warname>AdvocateWS</rp.build.warname>
+				<rp.build.warname>Advocate</rp.build.warname>
 				<datasource.jndi>java:comp/env/jdbc/advocate</datasource.jndi>
 			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>ojdbc6</groupId>
+					<artifactId>ojdbc6</artifactId>
+					<version>${ojdbc.version}</version>
+				</dependency>
+			</dependencies>
 		</profile>
-        <profile>
-            <id>devl</id>
-            <properties>
-                <rp.build.warname>AdvocateWS_devl</rp.build.warname>
-                <datasource.jndi>jdbc/saisusr_devl</datasource.jndi>
-            </properties>
-        </profile>
+		<profile>
+			<id>devl</id>
+			<properties>
+				<rp.build.warname>Advocate_devl</rp.build.warname>
+				<datasource.jndi>jdbc/saisusr_devl</datasource.jndi>
+			</properties>
+		</profile>
 	</profiles>
 
 	<repositories>
@@ -76,20 +83,31 @@
 			<artifactId>slf4j-jdk14</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+		<!-- ojdbc6 is marked as provided as Weblogic already has a different version 
+			installed. Also note that jdbc wrapping must be turned of via the Weblogic 
+			console. -->
 		<dependency>
 			<groupId>ojdbc6</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>${ojdbc.version}</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-oracle</artifactId>
 			<version>${spring.data.oracle.version}</version>
 		</dependency>
+		<!-- jaxb-impl must be excluded due to some Weblogic classloading issues. -->
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>jaxb-impl</artifactId>
+					<groupId>com.sun.xml.bind</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
@@ -126,6 +144,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
